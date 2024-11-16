@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: black;
+}
+body .main-title {
+  text-transform: uppercase;
+  margin: 0 auto 80px;
+  border: 2px solid #ccc;
+  box-shadow: 0 0 12px 3px #ccc;
+  padding: 10px 20px;
+  font-size: 30px;
+  width: fit-content;
+  background-color: #ebe7e7;
+}
+body .box {
+  display: block;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px;
+  margin: 10px;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 10px 1px #ccc;
+  text-decoration: none;
+}
+body .box:hover {
+  box-shadow: 0 0 10px 1px #2196f3;
+}
+body .box .title {
+  border-top: 1px solid #606060;
+  font-size: 12px;
+  height: 45px;
+  padding-top: 10px;
+}
+body .box .price {
+  font-size: 12px;
+  color: #5bb0f5;
+  text-align: right;
+}
+
+/* secound page  */
+body .product {
+  max-width: 750px;
+  background-color: transparent;
+}
+
+body .product .container-img {
+  max-height: 460px;
+  transform: translateY(-50px);
+  box-shadow: 0 0 10px 1px #ccc;
+  background-color: #272727;
+  margin-bottom: 20px;
+}
+body .product .card-container {
+  transform: translateY(50px);
+  background-color: #eee;
+  box-shadow: 0 0 10px 1px #2196f3;
+}
+@media (max-width: 760px) {
+  body .product .container-img {
+    transform: translateY(0px);
+  }
+  body .product .card-container {
+    transform: translateY(0px);
+  }
+}
+body .product {
+  position: relative;
+}
+body .product .product-img {
+  height: 100%;
+  width: 100%;
+}
+body .product .reviews,
+body .product .close {
+  color: white;
+  background-color: #2196f3;
+  padding: 5px 15px;
+  display: block;
+  width: fit-content;
+}
+
+body .product .card-reviews {
+  display: none;
+  position: relative;
+}
+body .product .card-reviews .comment {
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+body .product .card-reviews .date {
+  font-size: 14px;
+}
+
+/* load  */
+body .load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: black;
+}
+body .load span {
+  width: 20px;
+  height: 20px;
+  background-color: aqua;
+  margin: 0 5px;
+  border-radius: 50%;
+  animation: up-down;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.load .two {
+  animation-delay: 0.2s;
+}
+.load .three {
+  animation-delay: 0.4s;
+}
+@keyframes up-down {
+  100% {
+    opacity: 0.2;
+    transform: translateY(20px);
+  }
+}

@@ -1,8 +1,9 @@
 let main = document.querySelector(".main");
 if (window.location.pathname === "/fetching-on-API/") {
-  fetch("https://dummyjson.com/products")
-    .then((res) => res.json())
-    .then((data) => {
+  async function fetchProducts() {
+    try {
+      const res = await fetch("https://dummyjson.com/products");
+      const data = await res.json();
       let products = data.products;
       for (let i = 0; i < products.length; i++) {
         // col
@@ -31,18 +32,27 @@ if (window.location.pathname === "/fetching-on-API/") {
         //
         main.appendChild(col);
       }
-    });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  //called
+  window.onload = fetchProducts;
 } else {
   let params = new URLSearchParams(window.location.search);
   let Id = params.get("id");
   console.log(Id);
-  setTimeout(() => {
-    document.querySelector("body .load").style.display = "none";
-  }, 500);
-  fetch(`https://dummyjson.com/products/${Id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      //create elements
+
+  async function fetchProductDetails() {
+    try {
+      //loading
+      setTimeout(() => {
+        document.querySelector("body .load").style.display = "none";
+      }, 500);
+      //fetch
+      const res = await fetch(`https://dummyjson.com/products/${Id}`);
+      const data = await res.json();
+      //elements
       let img = document.querySelector(".product .product-img");
       let title = document.querySelector(".product .card-title");
       let description = document.querySelector(".product .card-description");
@@ -82,5 +92,10 @@ if (window.location.pathname === "/fetching-on-API/") {
           document.querySelector(".product .card-body").style.display = "block";
         }
       });
-    });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  //called
+  window.onload = fetchProductDetails();
 }
