@@ -1,5 +1,5 @@
 let main = document.querySelector(".main");
-if (window.location.pathname === "/fetching-on-API-master/index.html") {
+if (window.location.pathname === "/fetching-on-API/") {
   fetch("https://dummyjson.com/products")
     .then((res) => res.json())
     .then((data) => {
